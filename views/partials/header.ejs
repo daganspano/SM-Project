@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS LINKS -->
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/taskbar.css">
+
+  <title>Spano Blog</title>
+</head>
+
+<body>
+  <header>
+    <!-- HEADER LOGO -->
+    <a href="/" class="title">Spano Blog</a>
+
+    <!-- SPACER -->
+    <div class="header-spacer"></div>
+
+    <!-- DARK/LIGHT MODE -->
+    <% if (locals.darkMode === "dark") { %>
+    <form action="/dark-light-switch" method="POST" style="height: 32px;">
+      <button type="submit" class="header-buttons">
+        <img src="svgs/light-mode-button.svg" alt="Add Content">
+      </button>
+    </form>
+    <% } else { %>
+      <form action="/dark-light-switch" method="POST" style="height: 32px;">
+        <button type="submit" class="header-buttons">
+          <img src="svgs/dark-mode-button.svg" alt="Add Content">
+        </button>
+      </form>
+    <% } %>
+
+    <!-- ADD CONTENT BUTTON -->
+    <% if (locals.page !== 'add-content') { %>
+      <a href="/add-content" class="header-buttons">
+        <img src="svgs/add-content-button.svg" alt="Add Content">
+      </a>
+    <% } %>
+
+    <!-- ACCOUNT BUTTON -->
+    <% if (locals.page !== 'account') { %>
+      <a href="/account" class="header-buttons">
+        <img src="svgs/account-button.svg" alt="Account">
+      </a>
+    <% } %>
+  </header>
+
+
+
