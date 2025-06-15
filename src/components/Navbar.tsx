@@ -1,12 +1,18 @@
 // Dependencies
 import AddIcon from "@mui/icons-material/Add";
 import { Box, Fab, Typography } from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import PersonIcon from "@mui/icons-material/Person";
 import { customBlue } from "../shared/styles/getTheme";
 export const Navbar = ({
-  setIsLoginRegister,
+  setScreenContent,
+  isDarkMode,
+  setIsDarkMode,
 }: {
-  setIsLoginRegister: (value: boolean) => void;
+  setScreenContent: (value: string) => void;
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
 }) => {
   /******************
    ***** Render *****
@@ -14,11 +20,11 @@ export const Navbar = ({
   return (
     <Box
       sx={{
-        backgroundColor: "primary.main",
+        backgroundColor: customBlue[300],
         display: "flex",
         gap: 2,
         padding: 2,
-        borderBottom: `1px solid ${customBlue[900]}`,
+        borderBottom: `1px solid ${customBlue[800]}`,
       }}
     >
       <Typography
@@ -31,15 +37,20 @@ export const Navbar = ({
             cursor: "pointer",
           },
         }}
+        onClick={() => setScreenContent("home")}
       >
         Social Better
       </Typography>
+
+      <Fab onClick={() => setIsDarkMode(!isDarkMode)}>
+        {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+      </Fab>
 
       <Fab>
         <AddIcon />
       </Fab>
 
-      <Fab onClick={() => setIsLoginRegister(true)}>
+      <Fab onClick={() => setScreenContent("loginRegister")}>
         <PersonIcon />
       </Fab>
     </Box>

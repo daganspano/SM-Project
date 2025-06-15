@@ -10,14 +10,19 @@ export const App = () => {
   /******************
    ***** Hooks ******
    ******************/
-  const [isLoginRegister, setIsLoginRegister] = useState(false);
+  const [screenContent, setScreenContent] = useState("home");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   /******************
    ***** Render *****
    ******************/
   return (
     <ThemeProvider theme={getTheme}>
-      <Navbar setIsLoginRegister={setIsLoginRegister} />
+      <Navbar
+        setScreenContent={setScreenContent}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
       <Box
         sx={{
           display: "flex",
@@ -25,10 +30,14 @@ export const App = () => {
           minHeight: "calc(100vh - 75px)",
         }}
       >
-        <Sidebar />
+        <Sidebar
+          screenContent={screenContent}
+          setScreenContent={setScreenContent}
+        />
         <ContentContainer
-          isLoginRegister={isLoginRegister}
-          setIsLoginRegister={setIsLoginRegister}
+          screenContent={screenContent}
+          setScreenContent={setScreenContent}
+          isDarkMode={isDarkMode}
         />
       </Box>
     </ThemeProvider>

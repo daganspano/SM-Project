@@ -4,4 +4,10 @@ export interface Account {
   password: string;
 }
 
-export const accounts: Account[] = [];
+export const accounts: Account[] = [
+  {
+    username: "admin",
+    email: "daganspano@gmail.com",
+    password: "admin123",
+  },
+];

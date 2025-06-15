@@ -39,17 +39,19 @@ export const getTheme = createTheme({
       styleOverrides: {
         outlined: {
           fontWeight: 700,
-          color: customBlue[900],
-          borderColor: customBlue[900],
+          color: customBlue[800],
+          borderColor: customBlue[800],
           "&:hover": {
             color: customBlue[300],
-            backgroundColor: customBlue[900],
+            backgroundColor: customBlue[800],
           },
         },
         text: {
-          color: customBlue[700],
+          color: customBlue[950],
+          textDecoration: "underline",
           "&:hover": {
-            color: customBlue[600],
+            color: customBlue[900],
+            textDecoration: "underline",
           },
         },
       },
@@ -61,10 +63,10 @@ export const getTheme = createTheme({
       },
       styleOverrides: {
         root: {
-          backgroundColor: customBlue[900],
-          color: customBlue[500],
+          backgroundColor: customBlue[800],
+          color: customBlue[300],
           "&:hover": {
-            backgroundColor: customBlue[950],
+            backgroundColor: customBlue[900],
           },
         },
       },
@@ -74,7 +76,7 @@ export const getTheme = createTheme({
       styleOverrides: {
         root: {
           "&.Mui-focused": {
-            color: customBlue[900],
+            color: customBlue[800],
           },
         },
       },
@@ -89,12 +91,12 @@ export const getTheme = createTheme({
       styleOverrides: {
         root: {
           "& .MuiFilledInput-root": {
-            backgroundColor: customBlue[300],
+            backgroundColor: customBlue[400],
             borderRadius: "4px",
-            borderColor: customBlue[900],
+            borderColor: customBlue[800],
             "&:hover": {
-              backgroundColor: customBlue[400],
-              borderColor: customBlue[900],
+              backgroundColor: customBlue[500],
+              borderColor: customBlue[800],
             },
             "&.Mui-focused": {
               backgroundColor: customBlue[200],
@@ -108,9 +110,9 @@ export const getTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: customBlue[500],
-      light: customBlue[700],
-      dark: customBlue[300],
+      main: customBlue[700],
+      light: customBlue[800],
+      dark: customBlue[600],
     },
   },
 
