@@ -1,8 +1,9 @@
 // Dependencies
-import { customBlue } from "../../shared/styles/getTheme";
 import { Box } from "@mui/material";
+import { ContentPage } from "./ContentPage";
+import { CreatePost } from "../CreatePost";
+import { customBlue } from "../../shared/styles/getTheme";
 import { LoginRegister } from "../LoginRegister";
-import { useState } from "react";
 
 export const ContentContainer = ({
   screenContent,
@@ -28,24 +29,12 @@ export const ContentContainer = ({
           : 'url("https://www.transparenttextures.com/patterns/gplay.png")',
       }}
     >
-      {screenContent === "home" ? (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            color: customBlue[900],
-          }}
-        >
-          <h2>Welcome to the Main Content!</h2>
-          <p>Select a section from the sidebar to get started.</p>
-        </Box>
-      ) : screenContent === "loginRegister" ? (
-        <LoginRegister setScreenContent={setScreenContent} />
+      {screenContent !== "loginRegister" && screenContent !== "createPost" ? (
+        <ContentPage screenContent={screenContent} />
+      ) : screenContent !== "loginRegister" ? (
+        <CreatePost setScreenContent={setScreenContent} />
       ) : (
-        <></>
+        <LoginRegister setScreenContent={setScreenContent} />
       )}
     </Box>
   );

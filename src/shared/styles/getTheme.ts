@@ -128,6 +128,7 @@ export const getTheme = createTheme({
     h2: {
       fontSize: "2rem",
       fontWeight: 700,
+      color: customBlue[950],
     },
 
     h3: {

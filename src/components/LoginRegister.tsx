@@ -1,6 +1,6 @@
 // Dependencies
 
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { customBlue } from "../shared/styles/getTheme";
 import { useState } from "react";
 import { accounts } from "../data/accounts";
@@ -102,24 +102,18 @@ export const LoginRegister = ({
         }
       }}
     >
-      <Box
-        sx={{
-          bgcolor: customBlue[300],
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 2,
-          width: "fit-content",
-          height: "fit-content",
-          padding: 5,
-          borderRadius: 5,
-          boxShadow: 10,
-          mx: "auto",
-        }}
+      <Stack
+        alignItems="center"
+        gap={2}
+        bgcolor={customBlue[300]}
+        width="fit-content"
+        height="fit-content"
+        p={5}
+        borderRadius={5}
+        boxShadow={10}
+        mx="auto"
       >
-        <Typography variant="h2" color={customBlue[800]}>
-          {register ? "Register" : "Login"}
-        </Typography>
+        <Typography variant="h2">{register ? "Register" : "Login"}</Typography>
 
         {register && (
           <TextField
@@ -182,7 +176,7 @@ export const LoginRegister = ({
             </Typography>
           </Button>
         </Typography>
-      </Box>
+      </Stack>
     </form>
   );
 };
