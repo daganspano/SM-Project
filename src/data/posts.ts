@@ -3,6 +3,7 @@ export interface Post {
   username: string;
   title: string;
   content: string;
+  contentTypes: string[];
 }
 
 export const posts: Post[] = [
@@ -12,5 +13,6 @@ export const posts: Post[] = [
     title: "Test Post 1",
     content:
       "This is the content of test post 1. It contains some sample text to demonstrate the post structure.",
+    contentTypes: ["test", "demo"],
   },
 ];

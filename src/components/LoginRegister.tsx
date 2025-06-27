@@ -1,9 +1,26 @@
 // Dependencies
 
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Chip,
+  FormControl,
+  InputLabel,
+  ListItemText,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { customBlue } from "../shared/styles/getTheme";
 import { useState } from "react";
+
+// Mock Data
 import { accounts } from "../data/accounts";
+import { contentTypes } from "../data/contentTypes";
 
 export const LoginRegister = ({
   setScreenContent,
@@ -15,17 +32,33 @@ export const LoginRegister = ({
    *****************/
   const [register, setRegister] = useState(false);
 
-  const [registerInfo, setRegisterInfo] = useState({
+  const [registerInfo, setRegisterInfo] = useState<{
+    username: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    preferredContentTypes: string[];
+  }>({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
+    preferredContentTypes: [],
   });
 
   const [loginInfo, setLoginInfo] = useState({
     usernameOrEmail: "",
     password: "",
   });
+
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: 224,
+        width: 250,
+      },
+    },
+  };
 
   /********************
    ***** Handlers *****
@@ -62,6 +95,7 @@ export const LoginRegister = ({
               username: registerInfo.username,
               email: registerInfo.email,
               password: registerInfo.password,
+              preferredContentTypes: registerInfo.preferredContentTypes,
             });
 
             setRegisterInfo({
@@ -69,6 +103,7 @@ export const LoginRegister = ({
               email: "",
               password: "",
               confirmPassword: "",
+              preferredContentTypes: [],
             });
 
             alert("Registration successful!");
@@ -121,6 +156,7 @@ export const LoginRegister = ({
             name="username"
             value={registerInfo.username}
             onChange={handleRegisterChange}
+            fullWidth
           />
         )}
 
@@ -129,6 +165,7 @@ export const LoginRegister = ({
           name={register ? "email" : "usernameOrEmail"}
           value={register ? registerInfo.email : loginInfo.usernameOrEmail}
           onChange={register ? handleRegisterChange : handleLoginChange}
+          fullWidth
         />
 
         <TextField
@@ -137,16 +174,54 @@ export const LoginRegister = ({
           name="password"
           value={register ? registerInfo.password : loginInfo.password}
           onChange={register ? handleRegisterChange : handleLoginChange}
+          fullWidth
         />
 
         {register && (
-          <TextField
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            value={registerInfo.confirmPassword}
-            onChange={handleRegisterChange}
-          />
+          <>
+            <TextField
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              value={registerInfo.confirmPassword}
+              onChange={handleRegisterChange}
+              fullWidth
+            />
+
+            <FormControl sx={{ width: 300 }} required>
+              <InputLabel id="content-types-label" sx={{ pr: 6 }}>
+                Preferred Content
+              </InputLabel>
+
+              <Select
+                labelId="content-types-label"
+                multiple
+                name="preferredContentTypes"
+                value={registerInfo.preferredContentTypes}
+                onChange={handleRegisterChange}
+                input={<OutlinedInput label="Preferred Content" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {(selected as string[]).map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {contentTypes.map((type) => (
+                  <MenuItem key={type} value={type}>
+                    <Checkbox
+                      checked={
+                        registerInfo.preferredContentTypes.indexOf(type) > -1
+                      }
+                    />
+                    <ListItemText primary={type} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </>
         )}
 
         <Button type="submit">{register ? "Register" : "Login"}</Button>
@@ -163,6 +238,7 @@ export const LoginRegister = ({
                     email: "",
                     password: "",
                     confirmPassword: "",
+                    preferredContentTypes: [],
                   })
                 : setLoginInfo({
                     usernameOrEmail: "",
