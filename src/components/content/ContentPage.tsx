@@ -14,7 +14,7 @@ export const ContentPage = ({ screenContent }: { screenContent: string }) => {
       {screenContent === "home" ? (
         <Stack alignItems={"center"} gap={5}>
           {posts.map((post) => (
-            <Content post={post} />
+            <Content key={post.id} post={post} />
           ))}
         </Stack>
       ) : (

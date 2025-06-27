@@ -32,10 +32,9 @@ export const Content = ({ post }: { post: Post }) => {
       </Typography>
 
       <Typography variant="caption">
-        Content Types:{" "}
-        {/******************************************add functionality to filter by content type******************************************/}
+        // TODO: Add functionality to filter by content type Content Types:{" "}
         {post.contentTypes.map((type) => (
-          <Button variant="text" sx={{ textDecoration: "none" }}>
+          <Button key={type} variant="text" sx={{ textDecoration: "none" }}>
             @{type}
           </Button>
         ))}
