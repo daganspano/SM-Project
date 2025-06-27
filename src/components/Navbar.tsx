@@ -46,7 +46,7 @@ export const Navbar = ({
         {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
       </Fab>
 
-      <Fab>
+      <Fab onClick={() => setScreenContent("createPost")}>
         <AddIcon />
       </Fab>
 

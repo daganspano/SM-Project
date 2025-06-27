@@ -1,6 +1,4 @@
-import { BorderClear } from "@mui/icons-material";
 import { createTheme } from "@mui/material";
-import { blue } from "@mui/material/colors";
 
 export const customBlue = {
   50: "#eaf1fa",
@@ -128,6 +126,7 @@ export const getTheme = createTheme({
     h2: {
       fontSize: "2rem",
       fontWeight: 700,
+      color: customBlue[950],
     },
 
     h3: {
