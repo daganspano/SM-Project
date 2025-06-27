@@ -29,12 +29,12 @@ export const ContentContainer = ({
           : 'url("https://www.transparenttextures.com/patterns/gplay.png")',
       }}
     >
-      {screenContent !== "loginRegister" && screenContent !== "createPost" ? (
-        <ContentPage screenContent={screenContent} />
-      ) : screenContent !== "loginRegister" ? (
+      {screenContent === "loginRegister" ? (
+        <LoginRegister setScreenContent={setScreenContent} />
+      ) : screenContent === "createPost" ? (
         <CreatePost setScreenContent={setScreenContent} />
       ) : (
-        <LoginRegister setScreenContent={setScreenContent} />
+        <ContentPage screenContent={screenContent} />
       )}
     </Box>
   );

@@ -43,6 +43,7 @@ export const CreatePost = ({
         e.preventDefault();
 
         posts.push({
+          id: posts[posts.length - 1].id + 1,
           username: post.username,
           title: post.title,
           content: post.content,

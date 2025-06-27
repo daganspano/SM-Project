@@ -1,4 +1,5 @@
 export interface Post {
+  id: number;
   username: string;
   title: string;
   content: string;
@@ -6,6 +7,7 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    id: 1,
     username: "admin",
     title: "Test Post 1",
     content:
