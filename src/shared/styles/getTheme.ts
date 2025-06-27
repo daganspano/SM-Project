@@ -1,6 +1,4 @@
-import { BorderClear } from "@mui/icons-material";
 import { createTheme } from "@mui/material";
-import { blue } from "@mui/material/colors";
 
 export const customBlue = {
   50: "#eaf1fa",
