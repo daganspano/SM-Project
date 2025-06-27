@@ -1,10 +1,25 @@
 // Dependencies
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Chip,
+  FormControl,
+  InputLabel,
+  ListItemText,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { customBlue } from "../shared/styles/getTheme";
 import { useState } from "react";
 
 // Mock Data
-import { posts } from "../data/posts";
+import { Post, posts } from "../data/posts";
+import { contentTypes } from "../data/contentTypes";
 
 export const CreatePost = ({
   setScreenContent,
@@ -15,11 +30,22 @@ export const CreatePost = ({
    ***** Hooks ******
    ******************/
 
-  const [post, setPost] = useState({
+  const [post, setPost] = useState<Post>({
+    id: 0,
     username: "",
     title: "",
     content: "",
+    contentTypes: [],
   });
+
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: 224,
+        width: 250,
+      },
+    },
+  };
 
   /********************
    ***** Handlers *****
@@ -47,6 +73,7 @@ export const CreatePost = ({
           username: post.username,
           title: post.title,
           content: post.content,
+          contentTypes: post.contentTypes,
         });
 
         alert("Post created successfully!");
@@ -71,6 +98,7 @@ export const CreatePost = ({
           name="username"
           value={post.username}
           onChange={handlePostChange}
+          fullWidth
         />
 
         <TextField
@@ -78,6 +106,7 @@ export const CreatePost = ({
           name="title"
           value={post.title}
           onChange={handlePostChange}
+          fullWidth
         />
 
         <TextField
@@ -85,7 +114,37 @@ export const CreatePost = ({
           name="content"
           value={post.content}
           onChange={handlePostChange}
+          multiline
+          rows={4}
+          fullWidth
         />
+
+        <FormControl sx={{ width: 300 }} required>
+          <InputLabel id="content-types-label">Content Types</InputLabel>
+          <Select
+            labelId="content-types-label"
+            multiple
+            name="contentTypes"
+            value={post.contentTypes}
+            onChange={handlePostChange}
+            input={<OutlinedInput label="Content Types" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                {(selected as string[]).map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+            MenuProps={MenuProps}
+          >
+            {contentTypes.map((type) => (
+              <MenuItem key={type} value={type}>
+                <Checkbox checked={post.contentTypes.indexOf(type) > -1} />
+                <ListItemText primary={type} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <Button type="submit">Post</Button>
       </Stack>
