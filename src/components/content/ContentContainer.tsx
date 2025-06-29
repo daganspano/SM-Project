@@ -9,10 +9,14 @@ export const ContentContainer = ({
   screenContent,
   setScreenContent,
   isDarkMode,
+  user,
+  setUser,
 }: {
   screenContent: string;
   setScreenContent: (value: string) => void;
   isDarkMode: boolean;
+  user: string | null;
+  setUser: (value: string | null) => void;
 }) => {
   /******************
    ***** Render *****
@@ -29,10 +33,10 @@ export const ContentContainer = ({
           : 'url("https://www.transparenttextures.com/patterns/gplay.png")',
       }}
     >
-      {screenContent === "loginRegister" ? (
-        <LoginRegister setScreenContent={setScreenContent} />
+      {user === null ? (
+        <LoginRegister setUser={setUser} />
       ) : screenContent === "createPost" ? (
-        <CreatePost setScreenContent={setScreenContent} />
+        <CreatePost setScreenContent={setScreenContent} user={user} />
       ) : (
         <ContentPage screenContent={screenContent} />
       )}

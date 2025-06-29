@@ -23,8 +23,10 @@ import { contentTypes } from "../data/contentTypes";
 
 export const CreatePost = ({
   setScreenContent,
+  user,
 }: {
   setScreenContent: (value: string) => void;
+  user: string;
 }) => {
   /******************
    ***** Hooks ******
@@ -32,7 +34,7 @@ export const CreatePost = ({
 
   const [post, setPost] = useState<Post>({
     id: 0,
-    username: "",
+    username: user,
     title: "",
     content: "",
     contentTypes: [],
@@ -92,14 +94,6 @@ export const CreatePost = ({
         mx="auto"
       >
         <Typography variant="h2">Create Post</Typography>
-
-        <TextField
-          label="Username"
-          name="username"
-          value={post.username}
-          onChange={handlePostChange}
-          fullWidth
-        />
 
         <TextField
           label="Title"

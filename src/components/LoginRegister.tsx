@@ -23,9 +23,9 @@ import { accounts } from "../data/accounts";
 import { contentTypes } from "../data/contentTypes";
 
 export const LoginRegister = ({
-  setScreenContent,
+  setUser,
 }: {
-  setScreenContent: (value: string) => void;
+  setUser: (value: string | null) => void;
 }) => {
   /*****************
    ***** Hooks *****
@@ -63,6 +63,7 @@ export const LoginRegister = ({
   /********************
    ***** Handlers *****
    ********************/
+
   function handleRegisterChange(event) {
     const { name, value } = event.target;
     setRegisterInfo((prev) => ({
@@ -124,8 +125,8 @@ export const LoginRegister = ({
               password: "",
             });
 
-            alert(`Welcome back, ${account.username}!`);
-            setScreenContent("home");
+            alert(`Hello ${account.username}!`);
+            setUser(account.username);
           } else {
             setLoginInfo({
               usernameOrEmail: "",

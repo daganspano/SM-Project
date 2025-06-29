@@ -8,14 +8,17 @@ import { useState } from "react";
 
 export const App = () => {
   /******************
-   ***** Hooks ******
+   ***** States ******
    ******************/
+
+  const [user, setUser] = useState<string | null>(null);
   const [screenContent, setScreenContent] = useState("home");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   /******************
    ***** Render *****
    ******************/
+
   return (
     <ThemeProvider theme={getTheme}>
       <Navbar
@@ -38,6 +41,8 @@ export const App = () => {
           screenContent={screenContent}
           setScreenContent={setScreenContent}
           isDarkMode={isDarkMode}
+          user={user}
+          setUser={setUser}
         />
       </Box>
     </ThemeProvider>
