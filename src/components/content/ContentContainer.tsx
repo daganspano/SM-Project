@@ -57,7 +57,7 @@ export const ContentContainer = ({
         <LoginRegister setUser={setUser} />
       ) : screenContent === "createPost" ? (
         <CreatePost setScreenContent={setScreenContent} user={user} />
-      ) : screenContent == "account" ? (
+      ) : screenContent === "account" ? (
         <Account user={user} setUser={setUser} />
       ) : (
         <ContentPage screenContent={screenContent} user={user} />

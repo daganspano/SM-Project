@@ -11,7 +11,7 @@ import {
 
 export const ButtonSidebar = (props: {
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
-  selected: any;
+  selected: boolean;
   children:
     | string
     | number

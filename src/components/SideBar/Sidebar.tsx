@@ -32,7 +32,7 @@ export const Sidebar = ({
       }}
     >
       <ButtonSidebar
-        selected={screenContent === "home" ? true : false}
+        selected={screenContent === "home"}
         onClick={() => setScreenContent("home")}
       >
         <HomeIcon />
@@ -40,7 +40,7 @@ export const Sidebar = ({
       </ButtonSidebar>
 
       <ButtonSidebar
-        selected={screenContent === "popular" ? true : false}
+        selected={screenContent === "popular"}
         onClick={() => setScreenContent("popular")}
       >
         <ThumbUpIcon />
@@ -48,7 +48,7 @@ export const Sidebar = ({
       </ButtonSidebar>
 
       <ButtonSidebar
-        selected={screenContent === "following" ? true : false}
+        selected={screenContent === "following"}
         onClick={() => setScreenContent("following")}
       >
         <PersonAddIcon />
