@@ -1,9 +1,9 @@
 // Dependencies
 import { Box, ThemeProvider } from "@mui/material";
-import { ContentContainer } from "./components/content/ContentContainer";
-import { getTheme } from "./shared/styles/getTheme";
-import { Navbar } from "./components/Navbar";
-import { Sidebar } from "./components/SideBar/Sidebar";
+import { ContentContainer } from "@components/content/ContentContainer";
+import { getTheme } from "@shared/styles/getTheme";
+import { Navbar } from "@components/Navbar";
+import { Sidebar } from "@components/SideBar/Sidebar";
 import { useState } from "react";
 
 export const App = () => {

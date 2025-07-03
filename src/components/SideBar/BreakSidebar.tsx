@@ -1,7 +1,7 @@
 // Dependencies
 
 import { Box } from "@mui/material";
-import { customBlue } from "../../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 
 export const BreakSidebar = () => {
   /******************

@@ -1,8 +1,8 @@
 // Dependencies
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { customBlue } from "../../shared/styles/getTheme";
-import { Post } from "../../data/posts";
+import { customBlue } from "@shared/styles/getTheme";
+import { Post } from "@data/posts";
 
 export const Content = ({ post }: { post: Post }) => {
   /******************

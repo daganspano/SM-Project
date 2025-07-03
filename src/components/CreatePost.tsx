@@ -14,12 +14,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { customBlue } from "../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 import { useState } from "react";
 
 // Mock Data
-import { Post, posts } from "../data/posts";
-import { contentTypes } from "../data/contentTypes";
+import { Post, posts } from "@data/posts";
+import { contentTypes } from "@data/contentTypes";
 
 export const CreatePost = ({
   setScreenContent,
@@ -53,8 +53,8 @@ export const CreatePost = ({
    ***** Handlers *****
    ********************/
 
-  function handlePostChange(e) {
-    const { name, value } = e.target;
+  function handlePostChange(event: { target: { name: any; value: any } }) {
+    const { name, value } = event.target;
     setPost((prev) => ({
       ...prev,
       [name]: value,

@@ -1,9 +1,11 @@
 // Dependencies
+import { Account } from "@components/account/Account";
 import { Box } from "@mui/material";
 import { ContentPage } from "./ContentPage";
 import { CreatePost } from "../CreatePost";
-import { customBlue } from "../../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 import { LoginRegister } from "../LoginRegister";
+import { useEffect } from "react";
 
 export const ContentContainer = ({
   screenContent,
@@ -21,6 +23,24 @@ export const ContentContainer = ({
   /******************
    ***** Render *****
    ******************/
+
+  useEffect(() => {
+    document.title =
+      user === null
+        ? "Social Better | Login/Register"
+        : screenContent === "home"
+        ? "Social Better | Home"
+        : screenContent === "popular"
+        ? "Social Better | Popular"
+        : screenContent === "following"
+        ? "Social Better | Following"
+        : screenContent === "createPost"
+        ? "Social Better | Create Post"
+        : screenContent === "account"
+        ? "Social Better | Account"
+        : "Social Better";
+  }, [screenContent, user]);
+
   return (
     <Box
       sx={{
@@ -37,8 +57,10 @@ export const ContentContainer = ({
         <LoginRegister setUser={setUser} />
       ) : screenContent === "createPost" ? (
         <CreatePost setScreenContent={setScreenContent} user={user} />
+      ) : screenContent == "account" ? (
+        <Account user={user} setUser={setUser} />
       ) : (
-        <ContentPage screenContent={screenContent} />
+        <ContentPage screenContent={screenContent} user={user} />
       )}
     </Box>
   );

@@ -12,4 +12,10 @@ export const accounts: Account[] = [
     password: "admin123",
     preferredContentTypes: ["test", "demo"],
   },
+  {
+    username: "daganspano",
+    email: "daganspano@gmail.com",
+    password: "dagancs10",
+    preferredContentTypes: ["fitness", "motivation", "information"],
+  },
 ];
