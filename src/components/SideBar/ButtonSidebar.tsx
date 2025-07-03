@@ -1,11 +1,31 @@
 // Dependencies
 import { Button } from "@mui/material";
-import { customBlue } from "../../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
+import {
+  MouseEventHandler,
+  ReactElement,
+  JSXElementConstructor,
+  ReactNode,
+  ReactPortal,
+} from "react";
 
-export const ButtonSidebar = (props) => {
+export const ButtonSidebar = (props: {
+  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  selected: boolean;
+  children:
+    | string
+    | number
+    | boolean
+    | ReactElement<any, string | JSXElementConstructor<any>>
+    | Iterable<ReactNode>
+    | ReactPortal
+    | null
+    | undefined;
+}) => {
   /******************
    ***** Render *****
    ******************/
+
   return (
     <Button
       variant="text"

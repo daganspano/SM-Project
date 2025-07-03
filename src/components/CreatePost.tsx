@@ -14,17 +14,19 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { customBlue } from "../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 import { useState } from "react";
 
 // Mock Data
-import { Post, posts } from "../data/posts";
-import { contentTypes } from "../data/contentTypes";
+import { Post, posts } from "@data/posts";
+import { contentTypes } from "@data/contentTypes";
 
 export const CreatePost = ({
   setScreenContent,
+  user,
 }: {
   setScreenContent: (value: string) => void;
+  user: string;
 }) => {
   /******************
    ***** Hooks ******
@@ -32,7 +34,7 @@ export const CreatePost = ({
 
   const [post, setPost] = useState<Post>({
     id: 0,
-    username: "",
+    username: user,
     title: "",
     content: "",
     contentTypes: [],
@@ -51,8 +53,8 @@ export const CreatePost = ({
    ***** Handlers *****
    ********************/
 
-  function handlePostChange(e) {
-    const { name, value } = e.target;
+  function handlePostChange(event: { target: { name: any; value: any } }) {
+    const { name, value } = event.target;
     setPost((prev) => ({
       ...prev,
       [name]: value,
@@ -92,14 +94,6 @@ export const CreatePost = ({
         mx="auto"
       >
         <Typography variant="h2">Create Post</Typography>
-
-        <TextField
-          label="Username"
-          name="username"
-          value={post.username}
-          onChange={handlePostChange}
-          fullWidth
-        />
 
         <TextField
           label="Title"

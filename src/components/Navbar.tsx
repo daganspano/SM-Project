@@ -4,7 +4,7 @@ import { Box, Fab, Typography } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import PersonIcon from "@mui/icons-material/Person";
-import { customBlue } from "../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 export const Navbar = ({
   setScreenContent,
   isDarkMode,
@@ -50,7 +50,7 @@ export const Navbar = ({
         <AddIcon />
       </Fab>
 
-      <Fab onClick={() => setScreenContent("loginRegister")}>
+      <Fab onClick={() => setScreenContent("account")}>
         <PersonIcon />
       </Fab>
     </Box>

@@ -15,17 +15,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { customBlue } from "../shared/styles/getTheme";
+import { customBlue } from "@shared/styles/getTheme";
 import { useState } from "react";
 
 // Mock Data
-import { accounts } from "../data/accounts";
-import { contentTypes } from "../data/contentTypes";
+import { accounts } from "@data/accounts";
+import { contentTypes } from "@data/contentTypes";
 
 export const LoginRegister = ({
-  setScreenContent,
+  setUser,
 }: {
-  setScreenContent: (value: string) => void;
+  setUser: (value: string | null) => void;
 }) => {
   /*****************
    ***** Hooks *****
@@ -63,7 +63,8 @@ export const LoginRegister = ({
   /********************
    ***** Handlers *****
    ********************/
-  function handleRegisterChange(event) {
+
+  function handleRegisterChange(event: { target: { name: any; value: any } }) {
     const { name, value } = event.target;
     setRegisterInfo((prev) => ({
       ...prev,
@@ -71,7 +72,7 @@ export const LoginRegister = ({
     }));
   }
 
-  function handleLoginChange(event) {
+  function handleLoginChange(event: { target: { name: any; value: any } }) {
     const { name, value } = event.target;
     setLoginInfo((prev) => ({
       ...prev,
@@ -124,8 +125,8 @@ export const LoginRegister = ({
               password: "",
             });
 
-            alert(`Welcome back, ${account.username}!`);
-            setScreenContent("home");
+            alert(`Hello ${account.username}!`);
+            setUser(account.username);
           } else {
             setLoginInfo({
               usernameOrEmail: "",
