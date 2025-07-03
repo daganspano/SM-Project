@@ -1,6 +1,6 @@
 // Dependencies
-
 import { Button } from "@mui/material";
+import { Profile } from "@components/Profile";
 
 export const Account = ({
   user,
@@ -18,6 +18,8 @@ export const Account = ({
       <Button onClick={() => setUser(null)} variant="contained">
         Log Out
       </Button>
+
+      <Profile user={user} />
     </>
   );
 };
