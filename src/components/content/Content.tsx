@@ -1,6 +1,6 @@
 // Dependencies
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import { customBlue } from "@shared/styles/getTheme";
 import { Post } from "@data/posts";
 
