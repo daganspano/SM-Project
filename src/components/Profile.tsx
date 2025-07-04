@@ -27,7 +27,7 @@ export const Profile = ({
           backgroundColor: customBlue[300],
           position: "relative",
           width: 1,
-          height: 250,
+          height: 200,
           borderRadius: 5,
           border: `3px solid ${customBlue[300]}`,
           boxShadow: `1px 1px 6px ${customBlue[900]}`,
