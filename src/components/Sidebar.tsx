@@ -1,8 +1,8 @@
 // Dependencies
 
 import { Box } from "@mui/material";
-import { BreakSidebar } from "./BreakSidebar";
-import { ButtonSidebar } from "./ButtonSidebar";
+import { Break } from "./SideBar/Break";
+import { ButtonSidebar } from "./SideBar/ButtonSidebar";
 import { customBlue } from "@shared/styles/getTheme";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
@@ -55,7 +55,7 @@ export const Sidebar = ({
         Following
       </ButtonSidebar>
 
-      <BreakSidebar />
+      <Break />
     </Box>
   );
 };

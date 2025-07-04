@@ -3,6 +3,7 @@ import { Box, Button, Fab, Stack, Typography } from "@mui/material";
 import { customBlue } from "@shared/styles/getTheme";
 import { ContentPage } from "./content/ContentPage";
 import { Settings as SettingsIcon } from "@mui/icons-material";
+import { Break } from "./SideBar/Break";
 
 export const Profile = ({
   user,
@@ -23,12 +24,13 @@ export const Profile = ({
     <Stack gap={2} maxWidth={1500} mx="auto">
       <Box
         sx={{
-          backgroundColor: customBlue[800],
+          backgroundColor: customBlue[300],
           position: "relative",
           width: 1,
           height: 250,
           borderRadius: 5,
-          border: `3px solid ${customBlue[800]}`,
+          border: `3px solid ${customBlue[300]}`,
+          boxShadow: `1px 1px 6px ${customBlue[900]}`,
         }}
       >
         <img
@@ -52,7 +54,8 @@ export const Profile = ({
               maxWidth: 200,
               maxHeight: 200,
               borderRadius: "9999px",
-              border: `3px solid ${customBlue[800]}`,
+              border: `3px solid ${customBlue[300]}`,
+              boxShadow: `1px 1px 6px ${customBlue[900]}`,
             }}
           />
         </Box>
@@ -114,7 +117,9 @@ export const Profile = ({
         book.
       </Typography>
 
-      <Typography variant="h3" my={3}>
+      <Break my={3} />
+
+      <Typography variant="h3" mb={3}>
         Posts:
       </Typography>
       <ContentPage screenContent="profile" user={profileUser} />
