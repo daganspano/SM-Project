@@ -46,7 +46,13 @@ export const Profile = ({
           }}
         />
 
-        <Box position="absolute" left={50} bottom={25} width={200} height={200}>
+        <Box
+          position="absolute"
+          left={50}
+          bottom={-100}
+          width={200}
+          height={200}
+        >
           <img
             src="../images/gorilla_profile_icon.jpg"
             style={{
@@ -61,10 +67,17 @@ export const Profile = ({
         </Box>
       </Box>
 
-      <Stack alignItems="center" direction="row" gap={2}>
-        <Typography variant="h2">Dagan Spano</Typography>
-
+      <Stack
+        alignItems="center"
+        color={customBlue[900]}
+        direction="row"
+        gap={2}
+      >
         <Box flex={1} />
+
+        <Typography variant="subtitle1">Posts: 75</Typography>
+
+        <Typography variant="subtitle1">Followers: 100</Typography>
 
         {user !== profileUser ? (
           <>
@@ -74,6 +87,10 @@ export const Profile = ({
           </>
         ) : (
           <>
+            <Typography variant="subtitle1">Following: 500</Typography>
+
+            <Typography variant="subtitle1">Friends: 40</Typography>
+
             <Fab color="primary" aria-label="edit">
               <SettingsIcon />
             </Fab>
@@ -92,30 +109,27 @@ export const Profile = ({
         )}
       </Stack>
 
-      <Stack
-        alignItems="center"
-        color={customBlue[900]}
-        direction="row"
-        gap={2}
-      >
-        <Typography variant="h4" fontWeight={300} sx={{ fontStyle: "italic" }}>
-          {profileUser}
+      <Stack direction="row" mt={5} gap={5}>
+        <Stack gap={2}>
+          <Typography variant="h2">Dagan Spano</Typography>
+
+          <Typography
+            variant="h4"
+            fontWeight={300}
+            sx={{ fontStyle: "italic" }}
+          >
+            {profileUser}
+          </Typography>
+        </Stack>
+
+        <Typography variant="body1" maxWidth={500} mt={2}>
+          This is {profileUser}'s bio or description. Lorem Ipsum is simply
+          dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type
+          specimen book.
         </Typography>
-
-        <Box flex={1} />
-
-        <Typography variant="subtitle1">Posts: 75</Typography>
-
-        <Typography variant="subtitle1">Followers: 100</Typography>
       </Stack>
-
-      <Typography variant="body1" maxWidth={500}>
-        This is {profileUser}'s bio or description. Lorem Ipsum is simply dummy
-        text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's standard dummy text ever since the 1500s, when an unknown
-        printer took a galley of type and scrambled it to make a type specimen
-        book.
-      </Typography>
 
       <Break my={3} />
 
