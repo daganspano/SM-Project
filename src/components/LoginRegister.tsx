@@ -149,7 +149,7 @@ export const LoginRegister = ({
         boxShadow={10}
         mx="auto"
       >
-        <Typography variant="h2">{register ? "Register" : "Login"}</Typography>
+        <Typography variant="h3">{register ? "Register" : "Login"}</Typography>
 
         {register && (
           <TextField

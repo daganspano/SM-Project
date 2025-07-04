@@ -55,6 +55,20 @@ export const getTheme = createTheme({
       },
     },
 
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: customBlue[400],
+          color: customBlue[900],
+          fontWeight: 600,
+          "&:hover": {
+            backgroundColor: customBlue[500],
+            color: customBlue[950],
+          },
+        },
+      },
+    },
+
     MuiFab: {
       defaultProps: {
         size: "small",
@@ -118,36 +132,53 @@ export const getTheme = createTheme({
     fontFamily: '"Inter", sans-serif',
 
     h1: {
-      fontSize: "2rem",
-      fontWeight: 400,
-      letterSpacing: "0.05em",
+      fontSize: 32,
+      fontWeight: 300,
+      letterSpacing: 2,
     },
 
     h2: {
-      fontSize: "2rem",
-      fontWeight: 700,
-      color: customBlue[950],
+      fontSize: 56,
+      fontWeight: 300,
+      letterSpacing: 2,
+      fontStyle: "italic",
+      color: customBlue[800],
     },
 
     h3: {
-      fontSize: "1.75rem",
+      fontSize: 32,
       fontWeight: 600,
+      letterSpacing: 1,
+      color: customBlue[800],
     },
 
     h4: {
-      fontSize: "1.5rem",
+      fontSize: 24,
       fontWeight: 500,
+      letterSpacing: 0.75,
+      color: customBlue[800],
     },
 
     h5: {
-      fontSize: "1.25rem",
+      fontSize: 20,
       fontWeight: 400,
+      color: customBlue[800],
     },
 
     h6: {
-      fontSize: "1.25rem",
+      fontSize: 20,
       fontWeight: 400,
       fontStyle: "italic",
+      color: customBlue[800],
+    },
+
+    body1: {
+      color: customBlue[900],
+    },
+
+    caption: {
+      fontWeight: 500,
+      color: customBlue[900],
     },
   },
 });

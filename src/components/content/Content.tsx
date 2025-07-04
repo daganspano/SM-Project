@@ -1,6 +1,6 @@
 // Dependencies
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Chip, Stack, Typography } from "@mui/material";
 import { customBlue } from "@shared/styles/getTheme";
 import { Post } from "@data/posts";
 
@@ -18,25 +18,21 @@ export const Content = ({ post }: { post: Post }) => {
       sx={{ backgroundColor: customBlue[300], borderRadius: 5 }}
     >
       <Stack direction="row" alignItems="center" gap={1}>
-        <Typography variant="h2" flex={1}>
+        <Typography variant="h3" color={customBlue[900]} flex={1}>
           {post.title}
         </Typography>
 
         <AccountCircleIcon fontSize="large" htmlColor={customBlue[900]} />
 
-        <Typography color={customBlue[950]}>{post.username}</Typography>
+        <Typography color={customBlue[900]}>{post.username}</Typography>
       </Stack>
 
-      <Typography flex={1} color={customBlue[950]}>
-        {post.content}
-      </Typography>
+      <Typography flex={1}>{post.content}</Typography>
 
       <Typography variant="caption">
-        // TODO: Add functionality to filter by content type Content Types:{" "}
+        Content Types:{" "}
         {post.contentTypes.map((type) => (
-          <Button key={type} variant="text" sx={{ textDecoration: "none" }}>
-            @{type}
-          </Button>
+          <Chip label={type} sx={{ marginLeft: 1 }} />
         ))}
       </Typography>
     </Stack>

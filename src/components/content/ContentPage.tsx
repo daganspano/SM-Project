@@ -31,6 +31,8 @@ export const ContentPage = ({
       ) || user === post.username
   );
 
+  const profileContent = posts.filter((post) => user === post.username);
+
   /******************
    ***** Render *****
    ******************/
@@ -47,6 +49,12 @@ export const ContentPage = ({
         <Stack alignItems={"center"} gap={5}>
           <div>temporary to see all posts</div>
           {posts.map((post) => (
+            <Content key={post.id} post={post} />
+          ))}
+        </Stack>
+      ) : screenContent === "profile" ? (
+        <Stack direction={"row"} gap={5} flexWrap="wrap">
+          {profileContent.map((post) => (
             <Content key={post.id} post={post} />
           ))}
         </Stack>

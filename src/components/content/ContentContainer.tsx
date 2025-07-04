@@ -58,7 +58,11 @@ export const ContentContainer = ({
       ) : screenContent === "createPost" ? (
         <CreatePost setScreenContent={setScreenContent} user={user} />
       ) : screenContent === "account" ? (
-        <Account user={user} setUser={setUser} />
+        <Account
+          user={user}
+          setUser={setUser}
+          setScreenContent={setScreenContent}
+        />
       ) : (
         <ContentPage screenContent={screenContent} user={user} />
       )}
